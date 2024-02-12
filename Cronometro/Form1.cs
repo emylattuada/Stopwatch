@@ -10,6 +10,7 @@ namespace Cronometro
         public formPrincipal()
         {
             InitializeComponent();
+            CentrarBotonEnPanel();
 
         }
         protected override void OnPaint(PaintEventArgs e)
@@ -28,14 +29,21 @@ namespace Cronometro
         private void panelBar_Paint(object sender, PaintEventArgs e)
         {
             LinearGradientBrush gradientBrush = new LinearGradientBrush(
-                new Point(0, 0), // Punto de inicio del degradado (izquierda superior)
-                new Point(panelBar.ClientSize.Width, panelBar.ClientSize.Height), // Punto final del degradado (derecha inferior)
-                Color.FromArgb(23, 23, 23), // Color inicial
-                Color.FromArgb(13, 13, 13)); // Color final
+                new Point(0, 0), 
+                new Point(panelBar.ClientSize.Width, panelBar.ClientSize.Height), 
+                Color.FromArgb(23, 23, 23), 
+                Color.FromArgb(13, 13, 13)); 
 
-            // Dibuja el degradado en el área del panel.
             e.Graphics.FillRectangle(gradientBrush, panelBar.ClientRectangle);
         
-    }
+        }
+
+        private void CentrarBotonEnPanel()
+        {
+            int x = (panel1.Width - btnIniciar.Width) / 2;
+            int y = (panel1.Height - btnIniciar.Height) * 10 / 11; 
+
+            btnIniciar.Location = new Point(x, y);
+        }
     }
 }
