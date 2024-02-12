@@ -60,6 +60,7 @@
             panelBar.Size = new Size(331, 31);
             panelBar.TabIndex = 0;
             panelBar.Paint += panelBar_Paint;
+            panelBar.MouseMove += panelBar_MouseMove;
             // 
             // picMinimizar
             // 
