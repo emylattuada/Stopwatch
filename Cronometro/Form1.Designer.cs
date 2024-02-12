@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPrincipal));
             panelBar = new Panel();
             labelBar = new Label();
             picLogoBar = new PictureBox();
             btnIniciar = new CustomControls.RJControls.RJButton();
             panel1 = new Panel();
+            picRestablecer = new PictureBox();
+            labelTemporizador = new Label();
+            timerCronometro = new System.Windows.Forms.Timer(components);
             panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogoBar).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picRestablecer).BeginInit();
             SuspendLayout();
             // 
             // panelBar
@@ -55,10 +60,11 @@
             labelBar.AutoSize = true;
             labelBar.BackColor = Color.Transparent;
             labelBar.Enabled = false;
+            labelBar.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelBar.ForeColor = Color.White;
             labelBar.Location = new Point(26, 8);
             labelBar.Name = "labelBar";
-            labelBar.Size = new Size(72, 15);
+            labelBar.Size = new Size(82, 14);
             labelBar.TabIndex = 1;
             labelBar.Text = "Cronómetro";
             // 
@@ -75,29 +81,63 @@
             // 
             // btnIniciar
             // 
+            btnIniciar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnIniciar.BackColor = Color.FromArgb(23, 23, 23);
             btnIniciar.BackgroundColor = Color.FromArgb(23, 23, 23);
             btnIniciar.BorderColor = Color.PaleVioletRed;
-            btnIniciar.BorderRadius = 10;
+            btnIniciar.BorderRadius = 15;
             btnIniciar.BorderSize = 0;
             btnIniciar.FlatAppearance.BorderSize = 0;
             btnIniciar.FlatStyle = FlatStyle.Flat;
-            btnIniciar.ForeColor = Color.White;
-            btnIniciar.Location = new Point(107, 75);
+            btnIniciar.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnIniciar.ForeColor = SystemColors.ButtonShadow;
+            btnIniciar.Location = new Point(93, 66);
             btnIniciar.Name = "btnIniciar";
             btnIniciar.Size = new Size(144, 32);
             btnIniciar.TabIndex = 2;
             btnIniciar.Text = "Iniciar";
-            btnIniciar.TextColor = Color.White;
+            btnIniciar.TextColor = SystemColors.ButtonShadow;
             btnIniciar.UseVisualStyleBackColor = false;
+            btnIniciar.Click += btnIniciar_Click;
             // 
             // panel1
             // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(picRestablecer);
+            panel1.Controls.Add(labelTemporizador);
             panel1.Controls.Add(btnIniciar);
             panel1.Location = new Point(0, 37);
             panel1.Name = "panel1";
             panel1.Size = new Size(331, 110);
             panel1.TabIndex = 3;
+            // 
+            // picRestablecer
+            // 
+            picRestablecer.BackColor = Color.Transparent;
+            picRestablecer.Image = (Image)resources.GetObject("picRestablecer.Image");
+            picRestablecer.Location = new Point(243, 71);
+            picRestablecer.Name = "picRestablecer";
+            picRestablecer.Size = new Size(31, 31);
+            picRestablecer.SizeMode = PictureBoxSizeMode.Zoom;
+            picRestablecer.TabIndex = 2;
+            picRestablecer.TabStop = false;
+            // 
+            // labelTemporizador
+            // 
+            labelTemporizador.AutoSize = true;
+            labelTemporizador.FlatStyle = FlatStyle.Flat;
+            labelTemporizador.Font = new Font("Verdana", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelTemporizador.ForeColor = Color.FromArgb(23, 23, 23);
+            labelTemporizador.Location = new Point(93, 21);
+            labelTemporizador.Name = "labelTemporizador";
+            labelTemporizador.Size = new Size(138, 32);
+            labelTemporizador.TabIndex = 3;
+            labelTemporizador.Text = "00:00.00";
+            labelTemporizador.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // timerCronometro
+            // 
+            timerCronometro.Tick += timerCronometro_Tick;
             // 
             // formPrincipal
             // 
@@ -115,6 +155,8 @@
             panelBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picLogoBar).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picRestablecer).EndInit();
             ResumeLayout(false);
         }
 
@@ -125,5 +167,8 @@
         private Label labelBar;
         private CustomControls.RJControls.RJButton btnIniciar;
         private Panel panel1;
+        private Label labelTemporizador;
+        private PictureBox picRestablecer;
+        private System.Windows.Forms.Timer timerCronometro;
     }
 }
