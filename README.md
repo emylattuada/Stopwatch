@@ -30,5 +30,5 @@ Usé [Git](https://git-scm.com) para el versionado.
 
 ## Autor ✒️
 
-- **Emiliano Lattuada** - _Trabajo inicial_ - [Emiliano Lattuada](https://github.com/emylattuada)
+- [Emiliano Lattuada](https://github.com/emylattuada)
 
