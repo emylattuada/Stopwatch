@@ -67,6 +67,7 @@ namespace Cronometro
                 cronometroActivo = true;
                 timerCronometro.Start();
                 btnIniciar.Text = "Detener";
+                picRestablecer.Visible = false;
             }
             else
             {
@@ -76,11 +77,20 @@ namespace Cronometro
                     tiempoInicio = DateTime.Now - tiempoTranscurrido;
                     timerCronometro.Start();
                     btnIniciar.Text = "Detener";
+                    picRestablecer.Visible = false;
                 }
                 else
                 {
                     timerCronometro.Stop();
                     btnIniciar.Text = "Reanudar";
+                    if (btnIniciar.Text == "Reanudar")
+                    {
+                        picRestablecer.Visible = true;
+                    }
+                    else
+                    {
+                        picRestablecer.Visible = false;
+                    }
                 }
             }
 
@@ -90,6 +100,33 @@ namespace Cronometro
         {
             tiempoTranscurrido = DateTime.Now - tiempoInicio;
             labelTemporizador.Text = tiempoTranscurrido.ToString(@"mm\:ss\.ff");
+        }
+
+        private void picRestablecer_Click(object sender, EventArgs e)
+        {
+            timerCronometro.Stop();
+            cronometroActivo = false;
+            tiempoTranscurrido = TimeSpan.Zero;
+            labelTemporizador.Text = "00:00.00";
+
+            btnIniciar.Text = "Iniciar";
+            picRestablecer.Visible = false;
+        }
+
+        private void picRestablecer_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(picRestablecer, "Restablecer");
+        }
+
+        private void picCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void picMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

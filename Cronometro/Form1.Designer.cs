@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPrincipal));
             panelBar = new Panel();
+            picMinimizar = new PictureBox();
+            picCerrar = new PictureBox();
             labelBar = new Label();
             picLogoBar = new PictureBox();
             btnIniciar = new CustomControls.RJControls.RJButton();
@@ -39,6 +41,8 @@
             labelTemporizador = new Label();
             timerCronometro = new System.Windows.Forms.Timer(components);
             panelBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picMinimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogoBar).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picRestablecer).BeginInit();
@@ -47,6 +51,8 @@
             // panelBar
             // 
             panelBar.BackColor = SystemColors.ActiveCaptionText;
+            panelBar.Controls.Add(picMinimizar);
+            panelBar.Controls.Add(picCerrar);
             panelBar.Controls.Add(labelBar);
             panelBar.Controls.Add(picLogoBar);
             panelBar.Location = new Point(0, 0);
@@ -54,6 +60,30 @@
             panelBar.Size = new Size(331, 31);
             panelBar.TabIndex = 0;
             panelBar.Paint += panelBar_Paint;
+            // 
+            // picMinimizar
+            // 
+            picMinimizar.BackColor = Color.Transparent;
+            picMinimizar.Image = (Image)resources.GetObject("picMinimizar.Image");
+            picMinimizar.Location = new Point(284, 4);
+            picMinimizar.Name = "picMinimizar";
+            picMinimizar.Size = new Size(23, 22);
+            picMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
+            picMinimizar.TabIndex = 3;
+            picMinimizar.TabStop = false;
+            picMinimizar.Click += picMinimizar_Click;
+            // 
+            // picCerrar
+            // 
+            picCerrar.BackColor = Color.Transparent;
+            picCerrar.Image = (Image)resources.GetObject("picCerrar.Image");
+            picCerrar.Location = new Point(305, 4);
+            picCerrar.Name = "picCerrar";
+            picCerrar.Size = new Size(23, 22);
+            picCerrar.SizeMode = PictureBoxSizeMode.Zoom;
+            picCerrar.TabIndex = 2;
+            picCerrar.TabStop = false;
+            picCerrar.Click += picCerrar_Click;
             // 
             // labelBar
             // 
@@ -121,6 +151,9 @@
             picRestablecer.SizeMode = PictureBoxSizeMode.Zoom;
             picRestablecer.TabIndex = 2;
             picRestablecer.TabStop = false;
+            picRestablecer.Visible = false;
+            picRestablecer.Click += picRestablecer_Click;
+            picRestablecer.MouseHover += picRestablecer_MouseHover;
             // 
             // labelTemporizador
             // 
@@ -153,6 +186,8 @@
             Text = "Cronómetro";
             panelBar.ResumeLayout(false);
             panelBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picMinimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLogoBar).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -170,5 +205,7 @@
         private Label labelTemporizador;
         private PictureBox picRestablecer;
         private System.Windows.Forms.Timer timerCronometro;
+        private PictureBox picMinimizar;
+        private PictureBox picCerrar;
     }
 }
