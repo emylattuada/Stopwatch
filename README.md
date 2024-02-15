@@ -4,7 +4,7 @@ Cronómetro.
 
 ## Descripción
 
-Cronómetro de escritorio portable.
+Cronómetro de escritorio portable de uso personal.
 
 ## Visuales
 
