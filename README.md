@@ -19,6 +19,7 @@ Capturas de pantalla.
 # La aplicación es portable, por lo tanto se deberá de abrir el archivo .exe para poder hacer uso de este.
 
 ```
+- [Descarga aquí](https://app.box.com/file/1444828989411)
 
 ## Construido Con 🛠️
 
